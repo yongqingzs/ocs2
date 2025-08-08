@@ -22,16 +22,16 @@
           output="screen" args="$(arg description_name) $(arg config_name)" launch-prefix=""/>
 
     <node pkg="ocs2_anymal_mpc" type="ocs2_anymal_mpc_dummy_mrt_node" name="ocs2_anymal_mpc_dummy_mrt_node"
-          output="screen" args="$(arg description_name) $(arg config_name)" launch-prefix="gnome-terminal --"/>
+          output="screen" args="$(arg description_name) $(arg config_name)" launch-prefix="xterm -fa 'Monospace' -fs 12 -e"/>
 
     <node pkg="ocs2_anymal_commands" type="gait_command_node" name="gait_command_node"
-          output="screen" launch-prefix="gnome-terminal --"/>
+          output="screen" launch-prefix="xterm -fa 'Monospace' -fs 12 -e"/>
 
     <node pkg="ocs2_anymal_commands" type="target_command_node" name="target_command_node"
-          output="screen" args="$(arg target_command)" launch-prefix="gnome-terminal --"/>
+          output="screen" args="$(arg target_command)" launch-prefix="xterm -fa 'Monospace' -fs 12 -e"/>
 
     <node pkg="ocs2_anymal_commands" type="motion_command_node" name="motion_command_node"
-          output="screen" args="dummy" launch-prefix="gnome-terminal --"/>
+          output="screen" args="dummy" launch-prefix="xterm -fa 'Monospace' -fs 12 -e"/>
 
     <!-- Launch Performance Indices Multi-plot -->
     <include if="$(arg performance_indices)" file="$(find ocs2_ros_interfaces)/launch/performance_indices.launch">
