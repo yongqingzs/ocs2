@@ -85,6 +85,24 @@ void GaitKeyboardPublisher::getKeyboardCommand() {
     return;
   }
 
+  // Check if the input is a number
+  try {
+    size_t index = std::stoul(gaitCommand);
+    if (index < gaitList_.size()) {
+      gaitCommand = gaitList_[index];  // Map the index to the corresponding gait name
+    } else {
+      std::cout << "Invalid index. Please enter a valid gait index or name.\n";
+      printGaitList(gaitList_);
+      return;
+    }
+  } catch (const std::invalid_argument& e) {
+    // Not a number, proceed with the original gaitCommand
+  } catch (const std::out_of_range& e) {
+    std::cout << "Index out of range. Please enter a valid gait index or name.\n";
+    printGaitList(gaitList_);
+    return;
+  }
+
   try {
     ModeSequenceTemplate modeSequenceTemplate = gaitMap_.at(gaitCommand);
     modeSequenceTemplatePublisher_.publish(createModeSequenceTemplateMsg(modeSequenceTemplate));
