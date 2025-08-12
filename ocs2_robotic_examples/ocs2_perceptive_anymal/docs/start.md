@@ -1,3 +1,4 @@
+# ocs2_perceptive_anymal start
 ## build
 依赖
 ```bash
@@ -19,7 +20,7 @@ git clone --recurse-submodules https://github.com/leggedrobotics/hpp-fcl.git
 catkin build ocs2_anymal -j4
 ```
 
-## 运行
+## start
 ```bash
 # 平面行走
 roslaunch ocs2_anymal_loopshaping_mpc anymal_c.launch
@@ -30,3 +31,9 @@ roslaunch ocs2_anymal_loopshaping_mpc perceptive_mpc_demo.launch
 # 离线Motion
 roslaunch ocs2_anymal_mpc mpc.launch robot_name:=anymal_c config_name:=c_series
 ```
+
+demo1
+![](resource/demo1.gif)
+
+demo2
+![](resource/demo2.gif)
